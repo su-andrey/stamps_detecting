@@ -1,4 +1,4 @@
-from model_pipelane import YoloStampPipeline
+from model_pipeline import YoloStampPipeline
 from PIL import Image
 from fastapi import FastAPI, File, UploadFile
 from fastapi.responses import JSONResponse
