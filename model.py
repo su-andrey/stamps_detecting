@@ -17,11 +17,11 @@ class YoloStampPipeline:
 
     @classmethod
     def from_pretrained(
-        cls,
-        model_path_hf: str = None,
-        device: str = "cpu",
-        filename_hf: str = "weights.pt",
-        local_model_path: str = None
+            cls,
+            model_path_hf: str = None,
+            device: str = "cpu",
+            filename_hf: str = "weights.pt",
+            local_model_path: str = None
     ):
         yolo = cls(device)
         if model_path_hf is not None and filename_hf is not None:
@@ -30,7 +30,7 @@ class YoloStampPipeline:
             yolo.model.eval()
         elif local_model_path is not None:
             yolo.model = torch.load(local_model_path, map_location="cpu")
-            yolo.model.to(device) # Здесь указать тип девайса из переданных
+            yolo.model.to(device)
             yolo.model.eval()
         return yolo
 
