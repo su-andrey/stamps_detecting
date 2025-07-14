@@ -9,6 +9,7 @@ git clone https://github.com/su-andrey/stamps_detecting
 ```
 2. Install dependencies
 ```bash
+cd .\stamps_detecting\
 pip install -r requirements.txt
 ```
 3. Run server
