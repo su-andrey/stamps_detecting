@@ -1,7 +1,7 @@
 import numpy as np
 import torch
 
-from app.model.constants import *
+from app.model.constants import W, H, S, ANCHORS, BOX, OUTPUT_THRESH, IOU_THRESH
 
 
 def output_tensor_to_boxes(boxes_tensor):
