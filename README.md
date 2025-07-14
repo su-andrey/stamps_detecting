@@ -5,7 +5,7 @@ API for automated stamp detection in documents
 ## Installation and launch
 1. Clone the repository:
 ```bash
-https://github.com/su-andrey/stamps_detecting
+git clone https://github.com/su-andrey/stamps_detecting
 ```
 2. Install dependencies
 ```bash
