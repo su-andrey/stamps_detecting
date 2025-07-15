@@ -34,6 +34,6 @@ image.close()
 ```
 ## API response format
 ```json
-{'detections': [[600.1234567890123, 380.1234567891234, 750.0019091090875, 520.95090790875], [55.55533399911999, 333.6250005175780, 190.5443878778828, 475.0750750750750]]}
+{"detections": [[600.1234567890123, 380.1234567891234, 750.0019091090875, 520.95090790875], [55.55533399911999, 333.6250005175780, 190.5443878778828, 475.0750750750750]]}
 ```
 The value corresponding to the "detections" key contains a list of lists of boxes coordinates in the format [x1, y1, x2, y2] - coordinates of the upper-left and lower-right corners
