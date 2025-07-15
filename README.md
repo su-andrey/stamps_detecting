@@ -3,6 +3,7 @@ API for automated stamp detection in documents
 - **YOLO-based detection**
 - **Multi-format support** - detect stamps from .png, .jpg, .jpeg, .tiff 
 ## Installation and launch
+The project runs correctly on Python version 3.10.11. On newer versions such as 3.12, it becomes impossible to run according to this instructions.
 1. Clone the repository:
 ```bash
 git clone https://github.com/su-andrey/stamps_detecting
