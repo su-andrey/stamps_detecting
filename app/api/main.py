@@ -11,4 +11,4 @@ model.load_state_dict(torch.load("app/api/weight.pt"))
 async def get_boxes(file: UploadFile = File(...)): # Единственный роут, принимает пост запрос с файлом
     image = Image.open(file.file)
     result = yolo_pipeline(model, "cpu", image)  # Можно указать необходимый тип устройства
-    return JSONResponse(content={"detections": result.numpy().tolist()})
+    return JSONResponse(content={"detections": result})

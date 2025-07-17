@@ -5,7 +5,7 @@ import torch.nn as nn
 from albumentations.pytorch.transforms import ToTensorV2
 
 from app.model.constants import ANCHORS
-from app.model.utils import output_tensor_to_boxes, nonmax_suppression, xywh2xyxy
+from app.model.utils import output_tensor_to_boxes
 
 """
     Class for custom activation.
@@ -90,7 +90,7 @@ class YOLOStamp(nn.Module):
         return x
 
 
-def yolo_pipeline(model, device, image) -> torch.Tensor:
+def yolo_pipeline(model, device, image) -> bool:
     model.eval()
     shape = torch.tensor(image.size)
     coef = torch.hstack((shape, shape)) / 448
@@ -105,7 +105,4 @@ def yolo_pipeline(model, device, image) -> torch.Tensor:
     with torch.no_grad():  # Нет необходимости в градиентах
         output = model(image_tensor["image"].unsqueeze(0).to(device))  # Используем девайс, указанный при запуске
     boxes = output_tensor_to_boxes(output[0].detach().cpu())  # Преобразуем в прямоугольники, выделяющие печати
-    boxes = nonmax_suppression(boxes=boxes)  # Отбрасываем наложение боксов, пересекаемость задана константой IOU_THRESH
-    boxes = xywh2xyxy(torch.tensor(boxes)[:, :4])  # Приводим координаты к виду x1, y1, x2, y2
-    boxes = boxes * coef  # Домножаем на коэффицент пропорциональности
-    return boxes
+    return len(boxes) > 0
