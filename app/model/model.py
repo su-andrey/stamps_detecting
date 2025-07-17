@@ -93,7 +93,6 @@ class YOLOStamp(nn.Module):
 def yolo_pipeline(model, device, image) -> bool:
     model.eval()
     shape = torch.tensor(image.size)
-    coef = torch.hstack((shape, shape)) / 448
     image = image.convert("RGB").resize(
         (448, 448))  # Преобразуем изображение для модели, перед этим считаем коэффиценты пропорциональности
     image = np.array(image)
